@@ -7,7 +7,8 @@ const conectar = async () => {
             useUnifiedTopology: true
         })
         console.log("DB Online");
-    }catch{
+    }catch(lg){
+        console.log(lg)
         throw new Error("DB Offline")
     }
 }
