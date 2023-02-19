@@ -7,12 +7,12 @@ const PapelitoSchema = Schema({
     estado: {
         type: String,
         enums: ["Por hacer", "Hecho", "Repetible"], 
-        required: true  
+        default: "Por hacer" 
     },
     tipo: {
         type: String,
         enums: ["Plan", "Libro", "Receta", "Película", "Serie"],
-        required: true
+        default: "Plan"
     },
     link_icono: {
         type: String,
@@ -20,7 +20,8 @@ const PapelitoSchema = Schema({
     },
     calificacion: {
         type: Number,
-        enums: [0,1,2,3,4,5]
+        enums: [0,1,2,3,4,5],
+        default: 0
     },
     deleted: {
         type: Boolean,
