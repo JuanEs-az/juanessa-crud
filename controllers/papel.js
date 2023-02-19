@@ -49,6 +49,13 @@ module.exports = {
     async updatePapelito(req, res){
         let {id} = req.params;
         let {contenido, tipo, estado, calificacion, link_icono} = req.body;
+        let tipoiconodef = {
+            "Libro": "https://cdn-icons-png.flaticon.com/512/2232/2232688.png",
+            "Receta": "https://cdn-icons-png.flaticon.com/512/450/450115.png",
+            "Película":"https://cdn-icons-png.flaticon.com/512/704/704939.png",
+            "Serie":"https://cdn-icons-png.flaticon.com/512/732/732228.png",
+        };
+        !!tipo ? link_icono = tipoiconodef[tipo] : link_icono
         try{
             const papelito =  await Papelito.findByIdAndUpdate(id, {contenido, tipo, estado, calificacion, link_icono}, {new: true});
             return res.json({
